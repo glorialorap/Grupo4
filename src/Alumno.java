@@ -46,13 +46,22 @@ public class Alumno {
     }
 // metodo para crear nuevos registrdo de alumno
     public void CrearAlumno() throws IOException {
-
+        
+        System.out.println("Ingrese el nombre del profesor a cargo: ");
+          String nprofesor = scanner.nextLine();
+        
         System.out.println("Ingrese el numero del alumno: ");
         int numero = scanner.nextInt();
         scanner.nextLine();
 
         System.out.println("Ingrese el nombre del alumno: ");
         String nombre = scanner.nextLine();
+        
+        System.out.println("Ingrese la edad del alumno: ");
+        int edad = scanner.nextInt();
+        
+        System.out.println("Ingrese el grado de estudio del alumno: ");
+        int grado = scanner.nextInt();
 
         System.out.println("Ingrese su primera calificacion: ");
         double cali1 = scanner.nextDouble();
@@ -73,8 +82,11 @@ public class Alumno {
         File archivo = new File("Datos alumnos");
         FileWriter writer = new FileWriter(archivo, true); // Añade al final del archivo
 // se escriben los datos del alumno en el archivo
-        writer.write("Numero agregado: " + numero + "\n" +
+        writer.write("nombre del profesor a cargo"+nprofesor+ "\n" 
+                +"Numero agregado: " + numero + "\n" +
                 "Nombre ingresado: " + nombre + "\n" +
+                "edad ingresada: " + edad + "\n" +
+                "grado ingresado: " + grado + "\n" +
                 "primera calificación: " + cali1 + "\n" +
                 "segunda calificación: " + cali2 + "\n" +
                 "tercera calificación: " + cali3 + "\n" +
@@ -115,8 +127,22 @@ public class Alumno {
                     System.out.println("Alumno encontrado, ingrese la nueva información:");
 
                     //imformacion a modificar 
+                    System.out.println("profesor a cargo: "+nprofesor);
+                    
                     System.out.println("Ingrese el numero del alumno: ");
                     int nuevonumero = Integer.parseInt(scanner.nextLine());
+                    
+                    System.out.println("Ingrese el nombre del alumno: ");
+                    String nuenombre = scanner.nextLine();
+
+                    System.out.println("Ingrese la edad del alumno: ");
+                    int nuevedad = scanner.nextInt();
+                    
+                    System.out.println("Ingrese el grado de estudio del alumno: ");
+                    int nuegrado = scanner.nextInt();
+                    
+                    System.out.println("Ingrese el grado de estudio del alumno: ");
+                    int nuegrado = scanner.nextInt();
 
                     System.out.println("Ingrese su primera calificación: ");
                     int nuevacal1 = Integer.parseInt(scanner.nextLine());
@@ -130,8 +156,10 @@ public class Alumno {
                     System.out.println("Ingrese su cuarta calificación: ");
                     int nuevacal4 = Integer.parseInt(scanner.nextLine());
 
-                    bufferedWriter.write("Nombre ingresado: " + nombreAlumno + "\n");
+                    bufferedWriter.write("Nombre ingresado: " + nuenombre + "\n");
                     bufferedWriter.write("Numero agregado: " + nuevonumero + "\n");
+                     bufferedWriter.write("edad agregado: " + nuevedad + "\n");
+                     bufferedWriter.write("Numero de grado: " + nuegrado + "\n");
                     bufferedWriter.write("Primera calificación: " + nuevacal1 + "\n");
                     bufferedWriter.write("segunda calificación: " + nuevacal2 + "\n");
                     bufferedWriter.write("tercera calificación: " + nuevacal3 + "\n");
@@ -139,6 +167,8 @@ public class Alumno {
                     
                     // ignora la imformacion del archivo original
                     // y rescribe en el archivo
+                    bufferedReader.readLine(); 
+                    bufferedReader.readLine(); 
                     bufferedReader.readLine(); 
                     bufferedReader.readLine();
                     bufferedReader.readLine();
@@ -191,6 +221,7 @@ public class Alumno {
                 if (nombreAlumno.equals(buscarNom)) {
                     alumnoEncontrado = true;
                     // Omitir las líneas del alumno a eliminar
+                    bufferedReader.readLine();
                     bufferedReader.readLine();
                     bufferedReader.readLine();
                     bufferedReader.readLine();
